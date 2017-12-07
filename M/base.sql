@@ -22,6 +22,7 @@ CREATE TABLE fragHistoire(
 CREATE TABLE choix(
         idChoix    int (11) Auto_increment  NOT NULL ,
         bon        Bool ,
+        titre      Text ,
         idFragHist Int ,
         PRIMARY KEY (idChoix )
 )ENGINE=InnoDB;
