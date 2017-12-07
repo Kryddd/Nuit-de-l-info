@@ -15,16 +15,27 @@
 			<nav>
 				<ul>
 					<li>
-						<a href="" title=""></a>
+						<a href="" title=""> header lala</a>
 					</li>
 				</ul>
 			</nav>
 		</header>
 
 		<div class="contain">
-			<section>
-				<div class="page">	
-						<p>test</p>
+
+			<section class="page pageIntro">	
+				<p>test</p>
+			</section>
+
+			<section class="page pagePrevention">	
+				<div class="col col1">
+						
+				</div>
+				<div class="col col2">
+						
+				</div>
+				<div class="col col3">
+						
 				</div>
 			</section>
 
@@ -34,5 +45,23 @@
 		</div>
 
 		<script type="text/javascript" src="V/js/js.js"></script>
+		<script>
+
+			function redimension(){
+				var window_height = $(window).height();
+
+				$('.page').each(function(){
+						// 60 px : la taille du header
+					$(this).css('height', window_height-60);
+				});
+
+				$('.pageIntro').css('height', window_height);
+			}
+
+			$(document).ready(function(){
+				redimension();
+				//alert('ok');
+			});
+		</script>
 	</body>
 </html>
