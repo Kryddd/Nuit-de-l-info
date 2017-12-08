@@ -256,7 +256,7 @@ svg{
 }
 
 /*** PAGE PREVENTION - 3 COLONNES ****
-**** ALCOOL, FATIGUE, VITESSE	  ***/
+**** ALCOOL, TELEPHONE, VITESSE	  ***/
 
 #pagePrevention{
 	background: pink;
@@ -285,7 +285,7 @@ svg{
 }
 .hiddenBloc .img, .hiddenBloc .text{
 	float: left;
-	width: 30%;
+	width: 40%;
 }
 .hiddenBloc .img{
 	height: 100%;
@@ -293,12 +293,15 @@ svg{
 }
 .hiddenBloc .text{
 	position: relative;
-	width: 60%;
+	width: 50%;
 	margin-left: 5%;
 }
 .hiddenBloc h2{
 	text-align: center;
 	padding: 3% 0 4% 0;
+	font-family: 'Aclonica', sans-serif;
+	text-transform: uppercase;
+	font-size: 33px;
 }
 .hiddenBloc p{
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -345,7 +348,7 @@ svg{
   left: 0;
 }
 
-#toggle:hover {
+#toggle:hover{
 	cursor: pointer;
 }
 
@@ -366,6 +369,10 @@ svg{
 }
 .colAlcool{
 	background: url(../img/alcool-volant.jpg) no-repeat center;
+	background-size: cover;
+}
+.colTel{
+	background: url(../img/telephone-volant.jpg) no-repeat left;
 	background-size: cover;
 }
 
