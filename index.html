@@ -13,13 +13,15 @@
 	</head>
 	<body>
 
-		<div id="loaderBloc">
-			<div id="loader">
-				<img src="V/img/loader.png" alt="">
+		<div class="pageLoader">
+			<div id="loaderBloc">
+				<div id="loader">
+					<img src="V/img/loader.png" alt="">
+				</div>
+				<div class="counter" data-count="100">
+					0
+				</div><p>%</p>
 			</div>
-			<div class="counter" data-count="100">
-				0
-			</div><p>%</p>
 		</div>
 
 		<div id="fullpage">
@@ -39,7 +41,7 @@
 						</li>
 
 						<li class="timeline-block">
-							<a href="" class="marker" id="4"></a>
+							<a href="#appli" class="marker" id="4"></a>
 						</li>
 					</ul>
 				</nav>
@@ -49,7 +51,7 @@
 
 				<section class="page" id="pageIntro">
 					<div id="particles-js">
-						<h1>ceci est le <br>titre du site</h1>
+						<h1>UnnamedTeam<br>Sécurité routière</h1>
 					</div>
 				</section>
 
@@ -629,6 +631,10 @@
 					</g>
 					</svg>
 
+					<div class="renseign">
+						<p>Plus de renseignements : <a href="http://www.securite-routiere.gouv.fr" title="" target="_blank">http://www.securite-routiere.gouv.fr</a></p>
+					</div>
+
 				</section>
 
 				<section class="page" id="pagePrevention">	
@@ -651,7 +657,6 @@
 						<div class="text">
 							<h2></h2>
 							<p>
-								BABLABLA
 							</p>
 							<div id="toggle"></div>
 						</div>
@@ -662,6 +667,16 @@
 				<section class="page" id="pageJeuChoix">
 					<p>c
 					</p>
+				</section>
+
+				<section class="semipage" id="appli">
+					<div class="contain">
+						<p>Besoin de choisir un SAM pour rentrer de manière sécurisé ?<br>Prendre une petite pause tout en s’informant sur les risques de la routes, où encore apprendre à gérer votre comportements lors d’une soirée arrosé pour ne pas tomber “boire le verre de trop” ?
+						<br>
+						Téléchargez notre appli mobile sur la sécurité routière (disponible sur Android uniquement)
+						</p>
+						<a href="" title="">Accédez au téléchargement</a>
+					</div>
 				</section>
 
 			</div>
@@ -681,6 +696,12 @@
 				var h1_width = $('h1').width();
 				var svg_height = $('svg').height();
 
+				var contain_height = $('#appli .contain').height();
+				var containA_width = $('#appli .contain a').width();
+
+				var p_width = $('.renseign').width();
+				var p_height = $('.renseign').height();
+
 				$('.page').each(function(){
 						// 60 px : la taille du header
 					$(this).css('height', window_height);
@@ -695,7 +716,11 @@
 				$('h1').css('left', window_width/2 - h1_width/2);
 				$('h1').css('top', window_height/2 - h1_height/2);
 
+				$('.renseign').css('left', window_width/2 - p_width/2)
+				$('.renseign').css('top', window_height/4 - p_height/2);
 
+				$('#appli .contain').css('padding-top', window_height/4 - contain_height/2);
+				$('#appli .contain a').css('padding-left', window_width/2 - containA_width/2);
 
 			    $('.marker').each(function(){
 			    	var id = $(this).attr('id');
@@ -719,9 +744,13 @@
 				var counter_width = $('.counter').width();
 				var loader_height = $('#loaderBloc').height();
 
-				$('#loaderBloc').css('margin-top', window_height/2 - loader_height/2 -50);
+				$('#loader').css('margin-top', window_height/2 - loader_height/2 -50);
 				$('.counter').css('left', window_width/2 - counter_width);
 				$('#loaderBloc p').css('left', window_width/2 + counter_width+ 15);
+				$('.pageLoader').each(function(){
+						// 60 px : la taille du header
+					$(this).css('height', window_height);
+				});
 				// 50 : padding du loader bloc
 
 				$('.counter').each(function() {
@@ -741,7 +770,7 @@
 				    	complete: function() {
 				     	 $this.text(this.countNum);
 				     	$('#fullpage').delay(1000).fadeIn();
-				     	 $('#loaderBloc').delay(300).fadeOut();
+				     	 $('.pageLoader').delay(300).fadeOut();
 				     	 setTimeout(function(){ redimension(); }, 1000);
 				     	 
 				    	}
@@ -794,14 +823,16 @@
 					$('.hiddenBloc .img').css('background' , 'url(V/img/alcool-volant2.jpg) no-repeat center');
 					$('.hiddenBloc .img').css('background-size' , 'cover');
 					$('.hiddenBloc h2').text("L'alcool");
+					$('.hiddenBloc p').html(" L'alcool est en cause dans près <b>d'un tiers des accidents mortels</b> : <b>1000 personnes</b> sont tués dans des accidents avec l’alcool.<br>Une personne qui a bu a <b>8,5x plus de risque</b> d’être responsable d’un accident mortel <b>¼ des tués</b> a entre 18-24 ans. <br>Ils étaient <b>77% à empêcher</b> un ami qui a bu de prendre le volant");
 					$('.hiddenBloc').fadeIn()
 					$('.transparent').fadeIn();
 				});
 
 				$('#pagePrevention .colVitesse').click(function(){
-					$('.hiddenBloc .img').css('background' , 'url(V/img/alcool-volant2.jpg) no-repeat center');
+					$('.hiddenBloc .img').css('background' , 'url(V/img/vitesse-volant2.jpg) no-repeat right');
 					$('.hiddenBloc .img').css('background-size' , 'cover');
 					$('.hiddenBloc h2').text("La vitesse");
+					$('.hiddenBloc p').html("<b>28,8% des français</b> reconnaisse ne pas respecter les limitations de vitesse.<br>Un choc à  <b>130 km/h</b>  équivaut à un chute du <b>22ème étage</b> d’un immeuble. La nuit <b>36% des personnes</b> dépasse la limitation de vitesse. <br>Pour un piéton,  un choc a plus de <b>60  km/h</b> a <b>100% de chance </b>de conduire à un accident mortel.");
 					$('.hiddenBloc').fadeIn()
 					$('.transparent').fadeIn();
 				});
@@ -810,6 +841,7 @@
 					$('.hiddenBloc .img').css('background' , 'url(V/img/telephone-volant2.jpg) no-repeat center');
 					$('.hiddenBloc .img').css('background-size' , 'cover');
 					$('.hiddenBloc h2').text("Le téléphone");
+					$('.hiddenBloc p').html("Ecrire un message en conduisant <b>multiplie par 23</b> le risque d’accident.<br><b>61% </b>des moins de <b>35 ans lisent leurs sms</b> en conduisant? <b>1 accident corporel sur 10</b> est lié à l’utilisation du téléphone au volant.<br>Téléphoner au volant  <b>multiplie par 3</b> le risque d’accident");
 					$('.hiddenBloc').fadeIn()
 					$('.transparent').fadeIn();
 				});
@@ -826,6 +858,10 @@
 			            // et on voit la voiture à l'écran
 			            if( bottom_of_window > bottom_of_object && bottom_of_window < window_height*2 ){
 			                $(this).animate({'margin-left':'80%'}, 2500);
+			                 setTimeout(function(){
+			                 	$('.renseign').fadeIn();
+			                 }, 2500);
+
 			            }
 
 			        }); 
